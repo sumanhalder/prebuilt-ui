@@ -366,3 +366,17 @@ body {
     width: 100%;
   }
 }
+/* Optional: Distinct red button for stopping recording */
+#stop-recording {
+  background-color: var(--red-dark);
+  color: white;
+  border: none;
+}
+
+/* Optional: green background to match your theme */
+#start-recording {
+  background-color: var(--green);
+  color: white;
+  border: none;
+}
+
