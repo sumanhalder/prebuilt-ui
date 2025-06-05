@@ -18,6 +18,10 @@ async function createCallframe() {
     .on('joining-meeting', toggleLobby)
     .on('joined-meeting', handleJoinedMeeting)
     .on('left-meeting', handleLeftMeeting);
+    .on('recording-started', () => console.log('Recording started'))
+    .on('recording-stopped', () => console.log('Recording stopped'));
+
+  setupRecordingControls();
 
   const roomURL = document.getElementById('url-input');
   const joinButton = document.getElementById('join-call');
@@ -53,6 +57,7 @@ async function createRoom() {
     properties: {
       exp: exp,
       enable_chat: true,
+      enable_recording: "cloud",
     },
   };
 
@@ -317,4 +322,30 @@ function showDemoCountdown() {
       }
     }, 1000);
   }
+}
+
+// Recording control functions
+function setupRecordingControls() {
+  const startButton = document.getElementById('start-recording');
+  const stopButton = document.getElementById('stop-recording');
+
+  startButton.addEventListener('click', async () => {
+    try {
+      await callFrame.startRecording();
+      startButton.classList.add('hide');
+      stopButton.classList.remove('hide');
+    } catch (e) {
+      console.error('Error starting recording:', e);
+    }
+  });
+
+  stopButton.addEventListener('click', async () => {
+    try {
+      await callFrame.stopRecording();
+      stopButton.classList.add('hide');
+      startButton.classList.remove('hide');
+    } catch (e) {
+      console.error('Error stopping recording:', e);
+    }
+  });
 }
