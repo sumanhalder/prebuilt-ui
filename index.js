@@ -70,7 +70,7 @@ async function createRoom() {
 
   // Comment out the above and uncomment the below, using your own URL
   // if you prefer to test with a hardcoded room
-  return { url: 'https://your-domain.daily.co/hello' };
+  return { url: 'https://catcon.daily.co/hello' };
 }
 
 async function createRoomAndStart() {
@@ -311,7 +311,7 @@ function showDemoCountdown() {
         let minutes = Math.floor(seconds / 60);
         let remainingSeconds = Math.floor(seconds % 60);
 
-        countdownDisplay.innerHTML = `Demo expires in ${minutes}:${
+        countdownDisplay.innerHTML = `Video KYC expires in ${minutes}:${
           remainingSeconds > 10 ? remainingSeconds : '0' + remainingSeconds
         }`;
       }
