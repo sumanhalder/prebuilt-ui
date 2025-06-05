@@ -18,8 +18,8 @@ async function createCallframe() {
     .on('joining-meeting', toggleLobby)
     .on('joined-meeting', handleJoinedMeeting)
     .on('left-meeting', handleLeftMeeting);
-    .on('recording-started', () => console.log('Recording started'))
-    .on('recording-stopped', () => console.log('Recording stopped'));
+    //.on('recording-started', () => console.log('Recording started'))
+    //.on('recording-stopped', () => console.log('Recording stopped'));
 
   setupRecordingControls();
 
